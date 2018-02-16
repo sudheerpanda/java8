@@ -25,7 +25,9 @@ public class ConsumerInterfaceEx1 {
         ConsumerInterfaceEx1 c1=new ConsumerInterfaceEx1();
         c1.printPersonDetails(persons,consumer);
         //using lambda
-        c1.printPersonDetails(persons,(Person t)-> System.out.println(t.getName()));
+        Consumer<Person> co1=(Person t)-> System.out.print(t.getName());
+        Consumer<Person> co2=co1.andThen(p-> System.out.println("-- age :"+p.getAge()));
+        c1.printPersonDetails(persons,co2);
     }
     private  void printPersonDetails(List<Person> persons,Consumer<Person> cunsumer){
         persons.forEach(t->cunsumer.accept(t));
