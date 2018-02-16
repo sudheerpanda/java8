@@ -13,5 +13,14 @@ public class ConsumerInterfaceEx {
             }
         };
         numbers.forEach(consumer);
+
+        //using  lambdas
+        Consumer consumerLambda=(t)-> System.out.println(t);
+        numbers.forEach(consumerLambda);
+
+        //without using Consumer interace
+        numbers.forEach((t)-> System.out.println(t));
+
+
     }
 }
